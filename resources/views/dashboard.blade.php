@@ -62,7 +62,7 @@
             Pertanian sebagai salah satu badan yang terlibat dalam pelaksanaan
             program-program tersebut memiliki beragam kegiatan, antara lain:
         </p>
-        @if (session('user')['role'] === 'dinas')
+        @if (session('user')['role'] === 'dinas' && count($programs) <= 0)
             <a href="/tambah-program"
                 class="bg-green-500 flex items-center gap-2 rounded-md px-8 py-2 font-normal text-lg text-white self-center mb-4">Tambah
                 Data +</a>
@@ -86,12 +86,9 @@
                 </div>
             @endif
         </section>
-        @if (count($programs) > 0)
-            <button onclick="toggleProgram()" id="toggleProgram"
-                class="text-slate-700 self-end underline font-bold mt-4">
-                Lihat semua program
-            </button>
-        @endif
+        <a href="/program" id="toggleProgram" class="text-slate-700 self-end underline font-bold mt-4">
+            Lihat semua program
+        </a>
     </section>
     <section id="artikel" class="min-h-screen flex flex-col px-8 py-12 bg-gradient-to-b from-white to-[#75EBA133]">
         <div class="w-full flex md:flex-row gap-2 flex-col items-stretch">
@@ -125,17 +122,14 @@
                 </button>
             </aside>
         </div>
-        @if (session('user') && session('user')['role'] === 'dinas')
+        @if (session('user') && session('user')['role'] === 'dinas' && count($artikels) <= 0)
             <a href="/tambah-artikel"
                 class="bg-green-500 flex items-center gap-2 rounded-md px-8 py-2 font-normal text-lg text-white self-start my-4">Tambah
                 Data +</a>
         @endif
-        @if (count($artikels) > 0)
-            <button onclick="toggleArtikel()" id="toggleArtikel"
-                class="text-slate-700 self-end underline font-bold mt-4">
-                Lihat semua artikel
-            </button>
-        @endif
+        <a href="/artikel" id="toggleArtikel" class="text-slate-700 self-end underline font-bold mt-4">
+            Lihat semua artikel
+        </a>
     </section>
     <script>
         var artikelIndex = 1;
@@ -168,41 +162,6 @@
                     articles[i].classList.add('hidden');
                 }
             }
-        }
-    </script>
-    <script>
-        var programHide = true;
-
-        function toggleProgram() {
-            const programs = document.querySelectorAll('.program-item');
-            programs.forEach((program, i) => {
-                if (programHide) {
-                    program.classList.remove('hidden');
-                } else if (i >= 4) {
-                    program.classList.add('hidden');
-                }
-            });
-            document.getElementById('toggleProgram').innerText = programHide ? 'Tampilkan Lebih Sedikit' :
-                'Lihat semua program';
-            programHide = !programHide;
-        }
-
-        var artikelHide = true;
-
-        function toggleArtikel() {
-            const artikels = document.querySelectorAll('.artikel-item');
-            artikels.forEach((artikel, i) => {
-                if (artikelHide) {
-                    artikel.classList.remove('hidden');
-                } else if (i >= 4) {
-                    artikel.classList.add('hidden');
-                }
-            });
-            document.getElementById('toggleArtikel').innerText = artikelHide ? 'Tampilkan Lebih Sedikit' :
-                'Lihat semua artikel';
-            document.getElementById('backArtikelButton').classList.toggle('hidden');
-            document.getElementById('nextArtikelButton').classList.toggle('hidden');
-            artikelHide = !artikelHide;
         }
     </script>
     <script>

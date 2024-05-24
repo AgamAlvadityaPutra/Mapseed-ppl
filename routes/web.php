@@ -64,6 +64,7 @@ Route::get("/edit-benih/{id}", [BenihController::class, "editView"])->name("edit
 Route::post("/edit-benih/{id}", [BenihController::class, "edit"])->name("edit");
 Route::get("/detail-benih/{id}", [BenihController::class, "detailView"])->name("detail");
 
+Route::get("/program", [ProgramController::class, "index"])->name("program");
 Route::get("/program/{id}", [ProgramController::class, "detailProgram"])->name("detail program");
 Route::get("/tambah-program", [ProgramController::class, "tambahProgramView"])->name("tambah program");
 Route::post("/tambah-program", [ProgramController::class, "tambahProgram"])->name("tambah program");
@@ -73,6 +74,7 @@ Route::get("/daftar-program/{id}", [ProgramMemberController::class, "daftarView"
 Route::post("/daftar-program/{id}", [ProgramMemberController::class, "daftar"])->name("daftar program");
 Route::get("/pendaftar-program/{id}", [ProgramController::class, "listPendaftarView"])->name("list pendaftar");
 
+Route::get("/artikel", [ArtikelController::class, "index"])->name("artikel");
 Route::get("/artikel/{id}", [ArtikelController::class, "detail"])->name("detail artikel");
 Route::get("/tambah-artikel", [ArtikelController::class, "tambahView"])->name("tambah artikel");
 Route::post("/tambah-artikel", [ArtikelController::class, "tambah"])->name("tambah artikel");

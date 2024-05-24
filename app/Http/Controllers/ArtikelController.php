@@ -8,6 +8,14 @@ use App\Services\CustomTime;
 
 class ArtikelController extends Controller
 {
+    public function index()
+    {
+        $artikels = Artikel::all()->map(function ($artikel) {
+            $artikel->tanggal = CustomTime::FormatDate($artikel->tanggal);
+            return $artikel;
+        });
+        return view('artikel.index', compact('artikels'));
+    }
     public function detail($id)
     {
         $artikel = Artikel::find($id);
@@ -37,7 +45,7 @@ class ArtikelController extends Controller
         ]);
 
         $foto = request()->file('foto')->store('foto_artikel', 'public');
-        
+
         $newArtikel = Artikel::create([
             'judul' => request('judul'),
             'penulis' => request('penulis'),
@@ -48,9 +56,10 @@ class ArtikelController extends Controller
             'foto' => $foto,
         ]);
 
-        return redirect("/artikel/".$newArtikel->id)->with('success', 'Data Artikel Berhasil Ditambahkan');
+        return redirect("/artikel/" . $newArtikel->id)->with('success', 'Data Artikel Berhasil Ditambahkan');
     }
-    public function ubah($id) {
+    public function ubah($id)
+    {
         request()->validate([
             'judul' => 'required',
             'penulis' => 'required',
@@ -79,6 +88,6 @@ class ArtikelController extends Controller
             ]);
         }
 
-        return redirect("/artikel/".$artikel->id)->with('success', 'Data Artikel Berhasil Diubah');
+        return redirect("/artikel/" . $artikel->id)->with('success', 'Data Artikel Berhasil Diubah');
     }
 }

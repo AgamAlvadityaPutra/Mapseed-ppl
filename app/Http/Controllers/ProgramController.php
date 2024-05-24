@@ -8,6 +8,14 @@ use App\Services\CustomTime;
 
 class ProgramController extends Controller
 {
+    public function index()
+    {
+        $programs = Program::all()->map(function($program){
+            $program->waktu_pelaksanaan = CustomTime::FormatDate($program->waktu_pelaksanaan);
+            return $program;
+        });
+        return view('program.index', compact('programs'));
+    }
     public function detailProgram($id)
     {
         $program = Program::find($id);

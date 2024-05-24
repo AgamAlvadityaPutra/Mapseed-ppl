@@ -91,7 +91,7 @@
         <div class="flex gap-4 mt-4">
             <input type="submit" value="Simpan"
                 class="cursor-pointer bg-green-500 text-white px-8 py-2 rounded-md" />
-            <a href="/"
+            <a href="/artikel"
                 class="bg-red-500 text-white px-8 py-2 rounded-md">
                 Batal
             </a>
