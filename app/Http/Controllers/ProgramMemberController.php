@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dealer;
+use App\Models\Mitra;
 use App\Models\Program;
 use App\Models\ProgramMember;
 // use Illuminate\Http\Request;
@@ -13,9 +15,18 @@ class ProgramMemberController extends Controller
         $program = Program::find($id);
         if ($program->kuota <= $program->members->count()) {
             // return redirect()->back()->with('invalid', ["message" => 'Kuota peserta untuk program agrikultur ini sudah penuh']);
-            return redirect("/program/".$program->id)->with('invalid', ["message" => 'Kuota peserta untuk program agrikultur ini sudah penuh']);
+            return redirect("/program/" . $program->id)->with('invalid', ["message" => 'Kuota peserta untuk program agrikultur ini sudah penuh']);
         }
-        return view('program.daftar', compact('program'));
+        if (session('user')) {
+            $akun = session('user')["role"] === "mitra" ? Mitra::where(["credential_id" => session('user')["id"]])->first() : Dealer::where(["credential_id" => session('user')["id"]])->first();
+            return view('program.daftar', [
+                'program' => $program,
+                'akun' => $akun
+            ]);
+        }
+        return view('program.daftar', [
+            'program' => $program
+        ]);
     }
     public function daftar($id)
     {

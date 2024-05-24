@@ -50,24 +50,32 @@
         <h1 class="text-[25px] font-bold">Form Pendaftaran Program Agrikultur</h1>
         <hr class="w-full">
         @csrf
-        <label for="nama">Nama {{ session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}</label>
+        <label for="nama">Nama
+            {{ session('user') && session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}</label>
         <input type="text" name="nama" id="nama" class="py-2 px-3 border-2 rounded-md w-full"
-            placeholder="Nama {{ session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}"
-            value="{{ old('nama') }}" />
-        <label for="telepon">Nomor Telepon {{ session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}</label>
+            placeholder="Nama {{ session('user') && session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}"
+            value="{{ session('user') ? (session('user')['role'] === 'mitra' ? $akun->nama_perusahaan : $akun->nama_dealer) : old('nama') }}"
+            {{ session('user') ? 'disabled' : '' }} />
+        <label for="telepon">Nomor Telepon
+            {{ session('user') && session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}</label>
         <input type="tel" name="telepon" id="telepon" class="py-2 px-3 border-2 rounded-md w-full"
-            placeholder="Nomor Telepon {{ session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}"
-            value="{{ old('telepon') }}" />
+            placeholder="Nomor Telepon {{ session('user') && session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}"
+            value="{{ session('user') ? (session('user')['role'] === 'mitra' ? $akun->telepon_perusahaan : $akun->telepon_dealer) : old('telepon') }}"
+            {{ session('user') ? 'disabled' : '' }} />
         <p class="text-slate-400">*Format nomor telepon wajib diisi angka</p>
-        <label for="email">Email {{ session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}</label>
+        <label for="email">Email
+            {{ session('user') && session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}</label>
         <input type="email" name="email" id="email" class="py-2 px-3 border-2 rounded-md w-full"
-            placeholder="Email {{ session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}"
-            value="{{ old('email') }}" />
-        <label for="alamat">Alamat {{ session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}</label>
+            placeholder="Email {{ session('user') && session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}"
+            value="{{ session('user') ? (session('user')['role'] === 'mitra' ? $akun->email_perusahaan : $akun->email_dealer) : old('email') }}"
+            {{ session('user') ? 'disabled' : '' }} />
+        <label for="alamat">Alamat
+            {{ session('user') && session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}</label>
         <input type="text" name="alamat" id="alamat" class="py-2 px-3 border-2 rounded-md w-full"
-            placeholder="Alamat {{ session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}"
-            value="{{ old('alamat') }}" />
-        <label for="pertanyaan">Pertanyaan yang Diajukan</label>
+            placeholder="Alamat {{ session('user') && session('user')['role'] === 'mitra' ? 'Perusahaan' : '' }}"
+            value="{{ session('user') ? (session('user')['role'] === 'mitra' ? $akun->alamat_perusahaan : $akun->alamat_dealer) : old('alamat') }}"
+            {{ session('user') ? 'disabled' : '' }} />
+        <label for="pertanyaan">Pertanyaan yang Diajukan <span class="text-red-500">*</span></label>
         <textarea name="pertanyaan" id="pertanyaan" class="py-2 px-3 border-2 rounded-md w-full resize-none" cols="30"
             rows="5" placeholder="Pertanyaan yang Diajukan">{{ old('pertanyaan') }}</textarea>
         <div class="flex gap-4 mt-4">
