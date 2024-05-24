@@ -64,9 +64,6 @@ class ProgramController extends Controller
     public function ubahProgram($id)
     {
         request()->validate([
-            'nama' => "required",
-            'waktu_pelaksanaan' => "required|date",
-            'tempat_pelaksanaan' => "required",
             'kuota' => "required|numeric",
             'informasi_program' => "required",
             'foto_program' => "image|mimes:jpeg,png,jpg|max:2048",
@@ -79,9 +76,6 @@ class ProgramController extends Controller
         }
 
         $program->update([
-            'nama' => request('nama'),
-            'waktu_pelaksanaan' => request('waktu_pelaksanaan'),
-            'tempat_pelaksanaan' => request('tempat_pelaksanaan'),
             'kuota' => request('kuota'),
             'informasi_program' => request('informasi_program'),
             'foto_program' => $fotoProgram,

@@ -52,11 +52,11 @@
         @csrf
         <label for="nama">Nama Program</label>
         <input type="text" name="nama" id="nama" class="py-2 px-3 border-2 rounded-md w-full"
-            placeholder="Nama" value="{{ old('nama') ? old('nama') : $program->nama }}" />
+            placeholder="Nama" value="{{ old('nama') ? old('nama') : $program->nama }}" disabled />
         <label for="waktu_pelaksanaan">Waktu Pelaksanaan</label>
         <input type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan"
             class="py-2 px-3 border-2 rounded-md w-full" placeholder="Waktu Pelaksanaan"
-            value="{{ old('waktu_pelaksanaan') ? old('waktu_pelaksanaan') : $program->waktu_pelaksanaan }}" />
+            value="{{ old('waktu_pelaksanaan') ? old('waktu_pelaksanaan') : $program->waktu_pelaksanaan }}" disabled />
         <label for="kuota">Kuota Peserta</label>
         <input type="number" name="kuota" id="kuota" class="py-2 px-3 border-2 rounded-md w-full"
             placeholder="Kuota Peserta" value="{{ old('kuota') ? old('kuota') : $program->kuota }}" />
@@ -67,7 +67,7 @@
         <label for="tempat_pelaksanaan">Tempat Pelaksanaan</label>
         <input type="text" name="tempat_pelaksanaan" id="tempat_pelaksanaan"
             class="py-2 px-3 border-2 rounded-md w-full" placeholder="Tempat Pelaksanaan"
-            value="{{ old('tempat_pelaksanaan') ? old('tempat_pelaksanaan') : $program->tempat_pelaksanaan }}" />
+            value="{{ old('tempat_pelaksanaan') ? old('tempat_pelaksanaan') : $program->tempat_pelaksanaan }}" disabled />
         <div class="grid grid-cols-2 gap-2">
             <label class="cursor-pointer relative">
                 <h2 class="my-1">Foto</h2>
