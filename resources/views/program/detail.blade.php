@@ -24,7 +24,7 @@
             </div>
         </div>
     @endif
-    @if ($errors->any() || session("invalid"))
+    @if ($errors->any() || session('invalid'))
         <div id="modal" class="w-screen h-screen bg-[#11111155] fixed top-0 z-50 flex items-center justify-center">
             <div
                 class="w-1/3 bg-green-600 px-12 py-16 font-medium text-white rounded-xl drop-shadow-xl flex flex-col gap-2 items-center">
@@ -68,7 +68,9 @@
             </p>
         </aside>
         <aside class="w-2/5 flex flex-col items-center gap-1">
-            @if (session('user') && (session('user')['role'] === 'dealer' || session('user')['role'] === 'mitra'))
+            @if (
+                !session('user') ||
+                    (session('user') && (session('user')['role'] === 'dealer' || session('user')['role'] === 'mitra')))
                 <a href="/daftar-program/{{ $program->id }}"
                     class="w-full cursor-pointer bg-green-500 text-white px-8 py-2 rounded-md text-center mb-2">Daftar
                     Program</a>

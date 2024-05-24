@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 // use Illuminate\Http\Request;
 use App\Models\Artikel;
+use App\Services\CustomTime;
 
 class ArtikelController extends Controller
 {
     public function detail($id)
     {
         $artikel = Artikel::find($id);
+        $artikel->tanggal = CustomTime::FormatDate($artikel->tanggal);
         return view('artikel.detail', compact('artikel'));
     }
     public function tambahView()

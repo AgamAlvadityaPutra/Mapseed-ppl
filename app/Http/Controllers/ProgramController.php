@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 // use Illuminate\Http\Request;
 use App\Models\Program;
+use App\Services\CustomTime;
 
 class ProgramController extends Controller
 {
     public function detailProgram($id)
     {
         $program = Program::find($id);
+        $program->waktu_pelaksanaan = CustomTime::FormatDate($program->waktu_pelaksanaan);
         return view('program.detail', compact('program'));
     }
     public function tambahProgramView()
