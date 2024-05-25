@@ -10,6 +10,17 @@
 
 <body class="relative">
     @include('components/header')
+    @if (session('success'))
+        <div id="modal" class="w-screen h-screen bg-[#11111155] fixed top-0 z-50 flex items-center justify-center">
+            <div
+                class="w-1/3 bg-white px-12 py-16 font-medium text-slate-600 rounded-xl drop-shadow-xl flex flex-col gap-2 items-center">
+                <img class="w-20" src="/images/accent/success.svg" alt="success">
+                <h1 class="text-2xl text-center">{{ session('success') }}</h1>
+                <button onclick="document.querySelector('#modal').classList.add('hidden')"
+                    class="bg-red-500 text-white px-8 py-2 rounded-md mt-4">Tutup</button>
+            </div>
+        </div>
+    @endif
     <main
         class="relative h-screen flex items-center justify-center px-10 bg-gradient-to-b from-[#F2F4F5] to-[#75EBA199]">
         <aside class="w-1/2 z-20">
@@ -32,9 +43,12 @@
     </main>
     <section id="program-pemerintah"
         class="min-h-screen flex flex-col items-center px-8 py-12 bg-gradient-to-b from-white to-[#75EBA133]">
-        <h1 class="text-center text-[50px] leading-[50px] font-bold">
-            Program<br />Pemerintah
-        </h1>
+        <div>
+            <h1 class="text-center text-[50px] leading-[50px] font-bold">
+                Program<br />Pemerintah
+            </h1>
+            <img src="/images/accent/underline.svg" alt="underline" class="mt-2">
+        </div>
         <p class="text-center my-4 w-[90%]">
             Program pemerintah dalam bidang pertanian bertujuan untuk meningkatkan
             produktivitas, kesejahteraan petani, dan ketahanan pangan negara. Dinas
@@ -45,7 +59,7 @@
             @if (count($programs) > 0)
                 @foreach ($programs as $program)
                     <a href="/program/{{ $program->id }}"
-                        class="program-item border-4 rounded-md h-full {{ $loop->index >= 4 ? 'hidden' : '' }}">
+                        class="program-item border-4 rounded-md h-full {{ $loop->index >= 4 ? 'hidden' : '' }} {{ $loop->index === 0 ? 'border-slate-600' : '' }}">
                         <img class="object-cover w-full h-80" src="/storage/{{ $program->foto_program }}"
                             alt="foto program" />
                         <h2 class="p-2 pb-0 font-medium text-[#1F1F1F] text-[20px]">
@@ -60,17 +74,17 @@
                 </div>
             @endif
         </section>
-        @if (count($programs) > 0)
-            <button onclick="toggleProgram()" id="toggleProgram"
-                class="text-slate-700 self-end underline font-bold mt-4">
-                Lihat semua program
-            </button>
-        @endif
+        <a href="/program" id="toggleProgram" class="text-slate-700 self-end underline font-bold mt-4">
+            Lihat semua program
+        </a>
     </section>
     <section id="artikel" class="min-h-screen flex flex-col px-8 py-12 bg-gradient-to-b from-white to-[#75EBA133]">
         <div class="w-full flex md:flex-row gap-2 flex-col items-stretch">
             <aside class="md:w-1/3">
-                <h1 class="text-[50px] leading-[50px] font-bold md:text-left text-center">Artikel</h1>
+                <div>
+                    <h1 class="text-[50px] leading-[50px] font-bold md:text-left text-center">Artikel</h1>
+                    <img src="/images/accent/underline.svg" alt="underline" class="mt-2">
+                </div>
                 <img src="/images/illustration/illustration1.png" alt="illustration 1"
                     class="h-[80%] object-cover md:block hidden" />
             </aside>
@@ -81,7 +95,7 @@
                 <section class="grid md:grid-cols-2 grid-rows-2 gap-4 h-full">
                     @foreach ($artikels as $artikel)
                         <a href="/artikel/{{ $artikel->id }}"
-                            class="{{ $loop->index >= 4 ? 'hidden' : '' }} artikel-item flex flex-col items-start gap-3 p-6 border-4 rounded-xl">
+                            class="{{ $loop->index >= 4 ? 'hidden' : '' }} artikel-item flex flex-col items-start gap-3 p-6 border-4 {{ $loop->index === 0 ? 'border-slate-600' : '' }} rounded-xl">
                             <div class="bg-green-500 text-white py-2 px-3 rounded-md">
                                 {{ $artikel->tanggal }}
                             </div>
@@ -89,7 +103,7 @@
                                 {{ $artikel->judul }}
                             </h2>
                             <p>
-                                {{ $artikel->kata_kunci }}
+                                Kata Kunci: {{ $artikel->kata_kunci }}
                             </p>
                         </a>
                     @endforeach
@@ -99,12 +113,9 @@
                 </button>
             </aside>
         </div>
-        @if (count($artikels) > 0)
-            <button onclick="toggleArtikel()" id="toggleArtikel"
-                class="text-slate-700 self-end underline font-bold mt-4">
-                Lihat semua artikel
-            </button>
-        @endif
+        <a href="/artikel" id="toggleArtikel" class="text-slate-700 self-end underline font-bold mt-4">
+            Lihat semua artikel
+        </a>
     </section>
     <script>
         var artikelIndex = 1;

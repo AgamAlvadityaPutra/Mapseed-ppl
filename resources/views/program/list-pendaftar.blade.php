@@ -53,6 +53,10 @@
         </div>
     </main>
     <script>
-        let table = new DataTable('#table-wilayah');
+        new DataTable('#table-wilayah', {
+            searching: false,
+            paging: false,
+            info: false
+        });
     </script>
 </body>

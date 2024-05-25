@@ -66,14 +66,14 @@
             <span class="bg-teal-400 text-white px-4 py-1 rounded-md">{{ $artikel->penulis }}</span>
             <span class="bg-teal-400 text-white px-4 py-1 rounded-md">{{ $artikel->tanggal }}</span>
         </p>
-        <pre class="text-wrap whitespace-pre-line mt-2">
+        <pre class="text-wrap whitespace-pre-line mt-2 font-sans">
             {{ $artikel->isi }}
         </pre>
         <div class="flex gap-2 bg-teal-100 text-teal-400 font-semibold">
             <span class="bg-teal-400 w-7"></span>
             <p class="pe-2 py-4">{{ $artikel->kesimpulan }}</p>
         </div>
-        <p class="bg-teal-400 p-4 rounded-lg w-3/4">{{ $artikel->kata_kunci }}</p>
+        <p class="bg-teal-400 p-4 rounded-lg w-3/4">Kata Kunci: <br>{{ $artikel->kata_kunci }}</p>
         @if (session('user') && session('user')['role'] == 'dinas')
             <a href="/ubah-artikel/{{ $artikel->id }}" class="bg-yellow-400 text-white self-start px-4 py-1 rounded-md">Ubah Data</a>
         @endif

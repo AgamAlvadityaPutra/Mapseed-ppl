@@ -24,7 +24,10 @@
     <section id="artikel" class="min-h-screen flex flex-col px-8 py-12 bg-gradient-to-b from-white to-[#75EBA133]">
         <div class="w-full flex md:flex-row gap-2 flex-col items-stretch">
             <aside class="md:w-1/3">
-                <h1 class="text-[50px] leading-[50px] font-bold md:text-left text-center">Artikel</h1>
+                <div>
+                    <h1 class="text-[50px] leading-[50px] font-bold md:text-left text-center">Artikel</h1>
+                    <img src="/images/accent/underline.svg" alt="underline" class="mt-2">
+                </div>
                 <img src="/images/illustration/illustration1.png" alt="illustration 1"
                     class="h-[80%] object-contain object-top md:block hidden" />
             </aside>
@@ -32,7 +35,7 @@
                 <section class="grid md:grid-cols-2 grid-rows-2 gap-4 h-full">
                     @foreach ($artikels as $artikel)
                         <a href="/artikel/{{ $artikel->id }}"
-                            class="artikel-item flex flex-col items-start gap-3 p-6 border-4 rounded-xl">
+                            class="artikel-item {{ $loop->index === 0 ? 'border-slate-600' : '' }} flex flex-col items-start gap-3 p-6 border-4 rounded-xl">
                             <div class="bg-green-500 text-white py-2 px-3 rounded-md">
                                 {{ $artikel->tanggal }}
                             </div>
@@ -52,7 +55,7 @@
                 class="bg-green-500 flex items-center gap-2 rounded-md px-8 py-2 font-normal text-lg text-white self-start my-4">Tambah
                 Data +</a>
         @endif
-        <a href="/" id="toggleArtikel" class="text-slate-700 self-end underline font-bold mt-4">
+        <a href="/#artikel" id="toggleArtikel" class="text-slate-700 self-end underline font-bold mt-4">
             Tampilkan Lebih Sedikit
         </a>
     </section>
