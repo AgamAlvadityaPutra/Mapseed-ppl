@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>MapSeed</title>
+    <link rel="shortcut icon" href="/images/icon.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -82,8 +83,8 @@
             <label for="telepon_dinas">Nomor Telepon</label>
             <div class="w-full">
                 <input type="tel" name="telepon_dinas" id="telepon_dinas"
-                class="py-2 px-3 border-2 rounded-md w-full" placeholder="08xxxxxxxxxx"
-                value="{{ old('telepon_dinas') }}" />
+                    class="py-2 px-3 border-2 rounded-md w-full" placeholder="08xxxxxxxxxx"
+                    value="{{ old('telepon_dinas') }}" />
                 <p class="text-slate-400">*Format nomor telepon wajib diisi angka</p>
             </div>
             <label for="informasi_dinas">Informasi Dinas</label>
@@ -110,7 +111,8 @@
                 </div>
             </div>
             <div class="flex gap-4 mt-4 self-end">
-                <input type="submit" value="Daftar" class="cursor-pointer bg-green-500 text-white px-8 py-2 rounded-md" />
+                <input type="submit" value="Daftar"
+                    class="cursor-pointer bg-green-500 text-white px-8 py-2 rounded-md" />
                 <button type="button" onclick="javascript:history.back()"
                     class="bg-red-500 text-white px-8 py-2 rounded-md">
                     Batal

@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Cache-control" content="private" />
-    <title>Document</title>
+    <title>MapSeed</title>
+    <link rel="shortcut icon" href="/images/icon.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -37,7 +38,7 @@
                     {{ $dinas
                         ? $dinas['informasi_dinas']
                         : 'Dinas Pertanian dan Ketahanan Pangan Provinsi Jawa Timur Pusat Agribisnis Tanaman Pangan dan
-                                                                                Hortikultura Terkemuka, Berdaya Saing dan Berkelanjutan.' }}
+                                                                                                                        Hortikultura Terkemuka, Berdaya Saing dan Berkelanjutan.' }}
                 </p>
                 @if ($dinas)
                     <a href="/profile-dinas"

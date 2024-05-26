@@ -4,12 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>MapSeed</title>
+    <link rel="shortcut icon" href="/images/icon.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <style>
+        tr>th, tr>td {
+            text-align: center !important;
+        }
+    </style>
 </head>
 
 <body class="relative min-h-screen flex flex-col items-center px-6 bg-gradient-to-b from-white to-[#75EBA199]">
@@ -31,10 +37,10 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Pendaftar</th>
-                        <th>Nomor Pendaftar</th>
+                        <th>Nomor Telepon</th>
                         <th>Email</th>
                         <th>Alamat</th>
-                        <th>Pertanyaan</th>
+                        <th>Pertanyaan yang Diajukan</th>
                     </tr>
                 </thead>
                 <tbody>

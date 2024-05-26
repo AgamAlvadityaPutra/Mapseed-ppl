@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>MapSeed</title>
+    <link rel="shortcut icon" href="/images/icon.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -56,7 +57,8 @@
         <label for="waktu_pelaksanaan">Waktu Pelaksanaan</label>
         <input type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan"
             class="py-2 px-3 border-2 rounded-md w-full" placeholder="Waktu Pelaksanaan"
-            value="{{ old('waktu_pelaksanaan') ? old('waktu_pelaksanaan') : $program->waktu_pelaksanaan }}" disabled />
+            value="{{ old('waktu_pelaksanaan') ? old('waktu_pelaksanaan') : $program->waktu_pelaksanaan }}"
+            disabled />
         <label for="kuota">Kuota Peserta</label>
         <input type="number" name="kuota" id="kuota" class="py-2 px-3 border-2 rounded-md w-full"
             placeholder="Kuota Peserta" value="{{ old('kuota') ? old('kuota') : $program->kuota }}" />
@@ -67,7 +69,8 @@
         <label for="tempat_pelaksanaan">Tempat Pelaksanaan</label>
         <input type="text" name="tempat_pelaksanaan" id="tempat_pelaksanaan"
             class="py-2 px-3 border-2 rounded-md w-full" placeholder="Tempat Pelaksanaan"
-            value="{{ old('tempat_pelaksanaan') ? old('tempat_pelaksanaan') : $program->tempat_pelaksanaan }}" disabled />
+            value="{{ old('tempat_pelaksanaan') ? old('tempat_pelaksanaan') : $program->tempat_pelaksanaan }}"
+            disabled />
         <div class="grid grid-cols-2 gap-2">
             <label class="cursor-pointer relative">
                 <h2 class="my-1">Foto</h2>
@@ -92,8 +95,7 @@
         <div class="flex gap-4 mt-4">
             <input type="submit" value="Simpan"
                 class="cursor-pointer bg-green-500 text-white px-8 py-2 rounded-md" />
-            <a href="/program/{{ $program->id }}"
-                class="bg-red-500 text-white px-8 py-2 rounded-md">
+            <a href="/program/{{ $program->id }}" class="bg-red-500 text-white px-8 py-2 rounded-md">
                 Batal
             </a>
         </div>

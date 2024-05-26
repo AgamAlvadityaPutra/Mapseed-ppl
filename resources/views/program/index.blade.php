@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Cache-control" content="private" />
-    <title>Document</title>
+    <title>MapSeed</title>
+    <link rel="shortcut icon" href="/images/icon.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -43,7 +44,8 @@
         <section class="grid grid-cols-4 gap-4 w-full flex-grow">
             @if (count($programs) > 0)
                 @foreach ($programs as $program)
-                    <a href="/program/{{ $program->id }}" class="program-item border-4 {{ $loop->index === 0 ? 'border-slate-600' : '' }} rounded-md h-full">
+                    <a href="/program/{{ $program->id }}"
+                        class="program-item border-4 {{ $loop->index === 0 ? 'border-slate-600' : '' }} rounded-md h-full">
                         <img class="object-cover w-full h-80" src="/storage/{{ $program->foto_program }}"
                             alt="foto program" />
                         <h2 class="p-2 pb-0 font-medium text-[#1F1F1F] text-[20px]">

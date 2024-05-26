@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>MapSeed</title>
+    <link rel="shortcut icon" href="/images/icon.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -77,13 +78,13 @@
             @endif
             <h2 class="font-semibold text-lg">Nama Program:</h2>
             <p>{{ $program->nama }}</p>
-            <hr class="w-full">
+            <hr class="w-full border-2 border-slate-400 rounded-full">
             <h2 class="font-semibold text-lg">Waktu Pelaksanaan:</h2>
             <p>{{ $program->waktu_pelaksanaan }}</p>
-            <hr class="w-full">
+            <hr class="w-full border-2 border-slate-400 rounded-full">
             <h2 class="font-semibold text-lg">Kuota Peserta:</h2>
             <p>{{ $program->kuota }}</p>
-            <hr class="w-full">
+            <hr class="w-full border-2 border-slate-400 rounded-full">
             <h2 class="font-semibold text-lg">Tempat Pelaksanaan:</h2>
             <p>{{ $program->tempat_pelaksanaan }}</p>
             @if (session('user') && session('user')['role'] === 'dinas')
