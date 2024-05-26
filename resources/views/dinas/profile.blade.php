@@ -21,7 +21,7 @@
                 <h1 class="text-[40px] font-black text-center">{{$dinas["nama_dinas"]}}</h1>
             </aside>
             <aside class="w-3/5 bg-white px-4 py-2 rounded-xl flex flex-col gap-1">
-                <h1 class="text-[25px] font-bold">Detail Wilayah</h1>
+                <h1 class="text-[25px] font-bold">Profil Dinas</h1>
                 <hr class="w-full">
                 <label class="font-semibold">Nama:</label>
                 <p>{{$dinas["nama_dinas"]}}</p>
